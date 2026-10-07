@@ -70,7 +70,7 @@ App::plugin('circus-circuli/altcha', [
         /**
          * `invalid($data, ['altcha' => ['altcha']])` or V::altcha($payload)
          */
-        'altcha' => fn ($value): bool => Captcha::verify(is_string($value) ? $value : null),
+        'altcha' => fn ($value): bool => is_string($value) && Captcha::verify($value),
     ],
 
     'translations' => [
